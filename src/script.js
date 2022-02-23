@@ -64,10 +64,12 @@ function updateWeather(response) {
 
 function updateCity(event) {
   event.preventDefault();
+  let form = document.querySelector("#search-form");
   let cityInput = document.querySelector("#city-input");
   let key = "fd4ffa3dde63cf28819767f2d6c16744";
   let url = `https://api.openweathermap.org/data/2.5/weather?q=${cityInput.value}&appid=${key}&units=metric`;
   city.innerHTML = cityInput.value;
+  form.reset();
 
   axios.get(url).then(updateWeather);
 }
